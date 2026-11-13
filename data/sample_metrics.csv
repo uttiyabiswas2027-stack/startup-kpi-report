@@ -1,0 +1,5 @@
+week,revenue,new_customers,churned_customers,active_customers,cash_balance,burn
+2026-W42,1000,10,1,100,50000,2500
+2026-W43,1150,12,2,110,47500,2500
+2026-W44,1300,15,3,119,45000,2600
+2026-W45,1250,9,8,120,42400,2600
