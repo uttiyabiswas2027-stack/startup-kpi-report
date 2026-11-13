@@ -1,0 +1,20 @@
+name: weekly-kpi-report
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * 1"
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m unittest -v
+      - run: python kpi_report.py data/sample_metrics.csv | tee report.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kpi-report
+          path: report.md
